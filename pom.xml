@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>caad</groupId>
+ <artifactId>com.caadt.www</artifactId>
+ <packaging>war</packaging>
+ <version>0.0.1-SNAPSHOT</version>
+ <name>com.caadt.www Maven Webapp</name>
+ <url>http://maven.apache.org</url>
+ <properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <!-- 解决控制台输出乱码问题 -->
+  <argLine>-Dfile.encoding=UTF-8</argLine>
+  <xmlFileName>testng.xml</xmlFileName>
+
+ </properties>
+
+ <build>
+  <plugins>
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.9</version>
+    <configuration>
+     <!-- <skip>true</skip> -->
+     <!-- 每次执行测试的时候新建一个jvm -->
+     <forkMode>once</forkMode>
+     <!-- 明确指定一下JVM的file.encoding -->
+     <argLine>-Dfile.encoding=UTF-8</argLine>
+     <suiteXmlFiles>
+      <suiteXmlFile>DratNumCase.xml</suiteXmlFile>
+     </suiteXmlFiles>
+    </configuration>
+   </plugin>
+  </plugins>
+  <finalName>com.caadt.www</finalName>
+ </build>
+
+ <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+  <dependency>
+   <groupId>org.apache.poi</groupId>
+   <artifactId>poi</artifactId>
+   <version>3.11</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+  <dependency>
+   <groupId>org.apache.poi</groupId>
+   <artifactId>poi-ooxml</artifactId>
+   <version>3.11</version>
+  </dependency>
+
+  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+  <dependency>
+   <groupId>org.seleniumhq.selenium</groupId>
+   <artifactId>selenium-java</artifactId>
+   <version>2.53.0</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+  <dependency>
+   <groupId>org.testng</groupId>
+   <artifactId>testng</artifactId>
+   <version>6.10</version>
+  </dependency>
+
+  <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+  <dependency>
+   <groupId>org.apache.commons</groupId>
+   <artifactId>commons-lang3</artifactId>
+   <version>3.4</version>
+  </dependency>
+ </dependencies>
+</project>
+
